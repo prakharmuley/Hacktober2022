@@ -2,7 +2,7 @@ class Solution {
      long long ans=0L;
       int mod=1_000_000_007;
     Long dp[][];
-    public int dfs(int n, int k, int t)
+    public int fundfs(int n, int k, int t)
     {
            if(n<0||t<0) return 0;
         if(n==0&&t==0) return 1;
@@ -13,7 +13,7 @@ class Solution {
         {
             if(t-i>=0) 
             {
-                ans=((ans%mod)+(dfs(n-1,k,t-i)%mod))%mod;
+                ans=((ans%mod)+(fundfs(n-1,k,t-i)%mod))%mod;
             }
         }
         dp[n][t]=(ans%mod);
@@ -23,7 +23,7 @@ class Solution {
     public int numRollsToTarget(int n, int k, int target) {
       
         dp=new Long[n+1][target+1];
-        dfs(n,k,target);
+        fundfs(n,k,target);
         return (int)(dp[n][target]%mod);
     }
 }
