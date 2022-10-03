@@ -8,6 +8,7 @@ class Solution {
             if(hs.contains(x)) return false;
             hs.add(x);
         }
+        System.out.print(true);
         return true;
     }
 }
