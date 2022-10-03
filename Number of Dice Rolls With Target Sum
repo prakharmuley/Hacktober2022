@@ -18,6 +18,7 @@ class Solution {
         }
         dp[n][t]=(ans%mod);
         return (int)(dp[n][t]%1000000007);
+        System.out.print("done");
     }
     public int numRollsToTarget(int n, int k, int target) {
       
