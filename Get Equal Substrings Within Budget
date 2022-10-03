@@ -1,0 +1,27 @@
+class Solution {
+   
+    public int equalSubstring(String s, String t, int maxCost) {
+        List<Integer> idx=new ArrayList<>();
+        int mn=s.length();
+        int n=s.length();
+        int p[]=new int[n];
+        for(int i=0;i<s.length();i++)
+        {
+              p[i]=Math.abs(s.charAt(i)-t.charAt(i));
+        }
+
+        int subarray_end=0,subarray_start=0,subarray_sum=0,max_len=0;
+        for(int i=0;i<n;i++){
+        subarray_sum += p[i];
+        subarray_end += 1;
+        while(subarray_start<n&&subarray_sum>maxCost){
+            subarray_sum -= p[subarray_start];
+            subarray_start ++;
+        }
+        max_len = Math.max(max_len,subarray_end - subarray_start);
+        }
+    
+       
+        return max_len;
+    }
+}
